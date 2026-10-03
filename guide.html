@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>دليل استخدام تطبيق ماهر</title>
+<style>
+  :root {
+    --bg: #f7f8fa;
+    --card: #ffffff;
+    --text: #1d2433;
+    --muted: #5b6472;
+    --accent: #0f6b66;
+    --accent-light: #e6f3f2;
+    --gold: #b9922a;
+    --border: #e6e8ec;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Tahoma", "Segoe UI", system-ui, sans-serif;
+    line-height: 1.9;
+  }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 32px 20px 90px; }
+  header { text-align: center; margin-bottom: 28px; }
+  header .logo-badge {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff;
+    font-size: 13px;
+    padding: 4px 14px;
+    border-radius: 999px;
+    margin-bottom: 10px;
+  }
+  header h1 { font-size: 27px; margin: 0 0 6px; color: var(--accent); }
+  header p { color: var(--muted); font-size: 14px; margin: 0; }
+
+  nav.toc {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 18px 22px;
+    margin-bottom: 26px;
+  }
+  nav.toc h2 { font-size: 15px; margin: 0 0 10px; color: var(--accent); }
+  nav.toc ol { margin: 0; padding-inline-start: 20px; columns: 2; gap: 20px; }
+  nav.toc li { font-size: 13.5px; margin-bottom: 7px; break-inside: avoid; }
+  nav.toc a { color: var(--text); text-decoration: none; }
+  nav.toc a:hover { color: var(--accent); text-decoration: underline; }
+
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px 28px;
+    margin-bottom: 18px;
+    scroll-margin-top: 16px;
+  }
+  .card h2 {
+    font-size: 18.5px;
+    margin-top: 0;
+    margin-bottom: 6px;
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card .sub { color: var(--muted); font-size: 13px; margin-bottom: 14px; }
+  .card p, .card li { font-size: 15px; color: var(--text); }
+  ul, ol.steps { padding-inline-start: 22px; margin: 10px 0; }
+  li { margin-bottom: 8px; }
+  ol.steps { counter-reset: step; list-style: none; padding-inline-start: 0; }
+  ol.steps li {
+    counter-increment: step;
+    position: relative;
+    padding-inline-start: 34px;
+    margin-bottom: 12px;
+  }
+  ol.steps li::before {
+    content: counter(step);
+    position: absolute;
+    inline-size: 24px;
+    block-size: 24px;
+    inset-inline-start: 0;
+    top: -1px;
+    background: var(--accent);
+    color: #fff;
+    border-radius: 50%;
+    font-size: 12.5px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .tip {
+    background: var(--accent-light);
+    border-radius: 10px;
+    padding: 12px 16px;
+    font-size: 13.5px;
+    margin-top: 12px;
+    border-inline-start: 4px solid var(--accent);
+  }
+  .tip b { color: var(--accent); }
+  .warn {
+    background: #fdf3e3;
+    border-radius: 10px;
+    padding: 12px 16px;
+    font-size: 13.5px;
+    margin-top: 12px;
+    border-inline-start: 4px solid var(--gold);
+  }
+  .warn b { color: #8a6d1d; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 10px; }
+  @media (max-width: 600px) { .grid2 { grid-template-columns: 1fr; } nav.toc ol { columns: 1; } }
+  .mini-card {
+    background: var(--accent-light);
+    border-radius: 10px;
+    padding: 12px 14px;
+  }
+  .mini-card b { color: var(--accent); display: block; margin-bottom: 4px; font-size: 13.5px; }
+  .mini-card span { font-size: 12.5px; color: var(--text); }
+  footer { text-align: center; color: var(--muted); font-size: 13px; margin-top: 30px; }
+  .back-link {
+    display: inline-block;
+    margin-top: 6px;
+    font-size: 13px;
+    color: var(--accent);
+    text-decoration: none;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <span class="logo-badge">تطبيق ماهر لمتابعة حلقات القرآن</span>
+    <h1>دليل استخدام التطبيق</h1>
+    <p>شرح تفصيلي لكل ميزات التطبيق، خطوة بخطوة</p>
+    <a href="../" class="back-link">← سياسة الخصوصية</a>
+  </header>
+
+  <nav class="toc">
+    <h2>📑 محتويات الدليل</h2>
+    <ol>
+      <li><a href="#start">الإعداد الأول وحماية الدخول</a></li>
+      <li><a href="#halaqas">إنشاء الحلقات وإدارتها</a></li>
+      <li><a href="#students">إضافة الطلاب</a></li>
+      <li><a href="#lesson">تسجيل الحفظ (الدرس الجديد)</a></li>
+      <li><a href="#review">تسجيل المراجعة</a></li>
+      <li><a href="#reinforcement">التثبيت</a></li>
+      <li><a href="#attendance">الحضور والغياب</a></li>
+      <li><a href="#evaluation">التقييم الشهري</a></li>
+      <li><a href="#reports">التقارير اليومية والأسبوعية والشهرية</a></li>
+      <li><a href="#sharing">مشاركة التقارير عبر واتساب</a></li>
+      <li><a href="#certificate">شهادة أفضل طالب</a></li>
+      <li><a href="#halaqa-report">تقرير الحلقة الكامل (PDF)</a></li>
+      <li><a href="#backup">النسخة الاحتياطية عبر جوجل درايف</a></li>
+      <li><a href="#support">الدعم الفني</a></li>
+    </ol>
+  </nav>
+
+  <div class="card" id="start">
+    <h2>🔐 الإعداد الأول وحماية الدخول</h2>
+    <div class="sub">أول مرة تفتح فيها التطبيق</div>
+    <ol class="steps">
+      <li>أدخل اسمك كمعلّم، ليظهر في التقارير والشهادات التي تصدرها.</li>
+      <li>فعّل حماية الدخول: اختر فتح التطبيق بالبصمة أو التعرف على الوجه إن كان جهازك يدعمها، أو حدّد رمز دخول (PIN) من اختيارك.</li>
+      <li>من حينها، سيطلب منك التطبيق البصمة أو الرمز في كل مرة تفتحه فيها، لحماية بيانات طلابك من أي شخص آخر يستخدم جهازك.</li>
+    </ol>
+    <div class="tip"><b>ملاحظة:</b> حماية الدخول (البصمة/PIN) منفصلة تمامًا عن ربط حساب جوجل درايف للنسخ الاحتياطي — كل واحدة مستقلة عن الأخرى.</div>
+  </div>
+
+  <div class="card" id="halaqas">
+    <h2>🕌 إنشاء الحلقات وإدارتها</h2>
+    <div class="sub">الحلقة هي مجموعة الطلاب التي تتابعهم، ويمكنك إنشاء أكثر من حلقة</div>
+    <ol class="steps">
+      <li>من الشاشة الرئيسية اضغط زر إضافة حلقة جديدة، وأدخل اسمها (مثل: حلقة الفجر، أو حلقة الصف الثالث).</li>
+      <li>كل حلقة مستقلة تمامًا عن غيرها: طلابها، سجلاتها، وتقاريرها لا تختلط مع حلقة أخرى.</li>
+      <li>لتعديل اسم حلقة لاحقًا، اضغط أيقونة القلم ✏️ بجانب اسمها.</li>
+      <li>ادخل على أي حلقة لعرض قائمة طلابها والعمل عليها.</li>
+    </ol>
+  </div>
+
+  <div class="card" id="students">
+    <h2>👤 إضافة الطلاب</h2>
+    <div class="sub">داخل كل حلقة، أضف طلابك وحدد بياناتهم الأساسية</div>
+    <ol class="steps">
+      <li>اضغط زر إضافة طالب جديد داخل الحلقة.</li>
+      <li>أدخل اسم الطالب، ورقم جوال ولي الأمر (يُستخدم لاحقًا لإرسال التقارير عبر واتساب).</li>
+      <li>حدد عدد الأجزاء المفتوحة للطالب (كم جزءًا يحق له البدء في مراجعته وحفظه)، واتجاه الحفظ: تصاعدي من الجزء الأول إلى الثلاثين، أو تنازلي من الثلاثين إلى الأول — حسب نظام حلقتك.</li>
+      <li>لتعديل اسم الطالب لاحقًا، اضغط أيقونة القلم ✏️ بجانب اسمه داخل بطاقته.</li>
+      <li>لزيادة عدد الأجزاء المفتوحة لاحقًا (بعد تقدّم الطالب)، افتح بطاقة الطالب واختر العدد الجديد من القائمة.</li>
+    </ol>
+    <div class="warn"><b>تنبيه:</b> نطاق السور المتاحة للحفظ والمراجعة لا يتوسع تلقائيًا — لازم ترفع بنفسك عدد الأجزاء المفتوحة كلما تقدّم الطالب.</div>
+  </div>
+
+  <div class="card" id="lesson">
+    <h2>📖 تسجيل الحفظ (الدرس الجديد)</h2>
+    <div class="sub">لتسجيل ما حفظه الطالب حديثًا ولم يُختبر فيه بعد</div>
+    <ol class="steps">
+      <li>من بطاقة الطالب اختر "درس جديد"، ثم اختر السورة.</li>
+      <li>حدد "السورة كاملة" أو "تحديد آيات" لو الدرس جزءًا من السورة فقط.</li>
+      <li>يمكن للدرس أن يمتد عبر أكثر من سورة دفعة واحدة إذا لزم الأمر.</li>
+      <li>يُحفظ الدرس "معلّقًا" بانتظار اختبار الطالب فيه في الجلسة القادمة.</li>
+      <li>عند اختباره: اضغط 🔓 لفتح أزرار "حفظ" أو "لم يحفظ".
+        <ul>
+          <li><b>حفظ:</b> يُغلق الدرس ويُسجَّل في التقارير كدرس مكتمل.</li>
+          <li><b>لم يحفظ:</b> يُسجَّل في التقارير، ويبقى الدرس معلّقًا — تختار إعادته كما هو أو تعديل نطاقه لليوم التالي.</li>
+        </ul>
+      </li>
+      <li>يمكنك تعديل الدرس في أي وقت بالضغط على ✏️ دون أن يُسجَّل ذلك كنتيجة اختبار.</li>
+    </ol>
+    <div class="tip"><b>تتبع التقدّم:</b> يُعرض تقدّم الحفظ تصاعديًا من آية ← صفحة ← جزء، لمتابعة سهلة وواضحة.</div>
+  </div>
+
+  <div class="card" id="review">
+    <h2>🔁 تسجيل المراجعة</h2>
+    <div class="sub">لمتابعة مراجعة ما سبق حفظه</div>
+    <ol class="steps">
+      <li>من بطاقة الطالب اختر "مراجعة جديدة"، واختر السورة ونطاق الآيات بنفس طريقة الحفظ.</li>
+      <li>عند الاختبار، اضغط 🔓 ثم اختر النتيجة:
+        <ul>
+          <li><b>حفظ:</b> المراجعة ناجحة ومكتملة.</li>
+          <li><b>لم يحفظ (إعادة كاملة):</b> تُسجَّل ويُعاد اختبار المقطع كاملًا.</li>
+          <li><b>لم يحفظ - جزئيًا:</b> خاص بالمراجعة فقط — يتيح لك تحديد الجزء الذي حفظه الطالب فعليًا (يُسجَّل "حفظ" له) والجزء المتبقي (يُسجَّل "لم يحفظ" له ويبقى معلّقًا).</li>
+        </ul>
+      </li>
+    </ol>
+    <div class="tip">تقرير المراجعة يعرض نتائج كل مقطع يوميًا، بالإضافة إلى قائمة بالسور التي أُنهيت مراجعتها بنجاح خلال الفترة.</div>
+  </div>
+
+  <div class="card" id="reinforcement">
+    <h2>📌 التثبيت</h2>
+    <div class="sub">مقطع ثابت يعاد اختباره يوميًا حتى يترسخ حفظه</div>
+    <ol class="steps">
+      <li>اختر مقطعًا للتثبيت (مستقلًا عن مراجعة ذلك اليوم)، وحدّد عدد الأيام المطلوبة لترسيخه.</li>
+      <li>كل يوم، سجّل النتيجة: "محفوظ" (ينقص العداد يومًا)، أو "غير محفوظ" (يبقى العداد كما هو)، أو تترك اليوم بلا تسجيل (لا يُحتسب إطلاقًا).</li>
+      <li>عند وصول العداد إلى الصفر، يُعلَّم المقطع "مثبّت ✓" تلقائيًا، وتقدر تبدأ مقطع تثبيت جديد.</li>
+    </ol>
+    <div class="tip">تقرير التثبيت يعرض ببساطة محفوظ / غير محفوظ لكل يوم، لأن المقطع نفسه لا يتغيّر طوال فترة التثبيت.</div>
+  </div>
+
+  <div class="card" id="attendance">
+    <h2>✅ الحضور والغياب</h2>
+    <ol class="steps">
+      <li>من قائمة الطلاب بالحلقة، اضغط شريحة "غائب" بجانب اسم أي طالب غائب في ذلك اليوم.</li>
+      <li>يمكن تبديل حالة الحضور/الغياب لنفس اليوم بسهولة إن أخطأت.</li>
+      <li>عدد أيام الغياب يظهر تلقائيًا في التقييم الشهري وتقرير الحلقة الكامل.</li>
+    </ol>
+  </div>
+
+  <div class="card" id="evaluation">
+    <h2>⭐ التقييم الشهري</h2>
+    <ol class="steps">
+      <li>من شاشة التقييم الشهري لكل طالب، أدخل تقديرك الخاص لأدائه خلال الشهر (تقييم يدوي من المعلّم، لا يُحسَب تلقائيًا).</li>
+      <li>عند اختيار تقييم للطالب، تظهر شارة ⭐ تلقائيًا على بطاقة مشاركته لذلك الشهر.</li>
+      <li>عدد أيام الغياب يُعرض تلقائيًا ضمن نفس الشاشة.</li>
+    </ol>
+  </div>
+
+  <div class="card" id="reports">
+    <h2>📊 التقارير اليومية والأسبوعية والشهرية</h2>
+    <ol class="steps">
+      <li>من بطاقة الطالب، افتح شاشة التقارير واختر المدة: يومي، أسبوعي، أو شهري.</li>
+      <li>يعرض التقرير تفاصيل الحفظ والمراجعة والتثبيت خلال الفترة المختارة.</li>
+    </ol>
+  </div>
+
+  <div class="card" id="sharing">
+    <h2>💬 مشاركة التقارير عبر واتساب</h2>
+    <div class="grid2">
+      <div class="mini-card">
+        <b>زر واتساب</b>
+        <span>يفتح محادثة واتساب مباشرة مع رقم ولي أمر الطالب المسجّل، مع رسالة نصية جاهزة تحتوي ملخص التقرير.</span>
+      </div>
+      <div class="mini-card">
+        <b>زر مشاركة</b>
+        <span>يُنشئ صورة مصمَّمة لبطاقة التقرير (بدون نص مرفق) وتفتح نافذة المشاركة العامة للجهاز، لإرسالها بأي تطبيق تختاره.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="certificate">
+    <h2>🏆 شهادة أفضل طالب</h2>
+    <ol class="steps">
+      <li>من شاشة الحلقة، اختر "شهادة أفضل طالب" لإصدار شهادة شهرية.</li>
+      <li>اختر الطالب يدويًا، أو دع التطبيق يرشّح تلقائيًا بناءً على: الأقل غيابًا، ثم الأكثر حفظًا، ثم الأكثر إكمالًا لمقاطع المراجعة.</li>
+      <li>تعرض الشهادة اسم الطالب، اسم الحلقة، الشهر الهجري، واسم المعلّم فقط (بدون أرقام أو تفاصيل).</li>
+      <li>شاركها بنفس طريقة بطاقات التقارير (لقطة شاشة + نافذة المشاركة).</li>
+    </ol>
+  </div>
+
+  <div class="card" id="halaqa-report">
+    <h2>📄 تقرير الحلقة الكامل (PDF)</h2>
+    <ol class="steps">
+      <li>من شاشة الحلقة، اختر "تقرير الحلقة" لإصدار تقرير PDF شامل لكل طلابها.</li>
+      <li>يحتوي التقرير على: اسم الحلقة، وصف لكل طالب (الحضور، تقدّم الحفظ، المراجعة، التثبيت).</li>
+      <li>اختر فترة التقرير إما بالشهر الهجري الحالي (أو شهر سابق/لاحق)، أو بتحديد نطاق مخصص من تاريخ إلى تاريخ هجري.</li>
+      <li>شارك ملف الـ PDF مباشرة عبر نافذة المشاركة بالجهاز.</li>
+    </ol>
+  </div>
+
+  <div class="card" id="backup">
+    <h2>☁️ النسخة الاحتياطية عبر جوجل درايف</h2>
+    <ol class="steps">
+      <li>من شاشة الدعم الفني، اضغط "ربط حساب جوجل درايف" وسجّل دخولك بحسابك في جوجل (مرة واحدة فقط).</li>
+      <li>بعد الربط، يمكنك الضغط على "نسخ احتياطي الآن" لحفظ نسخة فورية من بياناتك.</li>
+      <li>يقوم التطبيق أيضًا بعمل نسخة احتياطية صامتة تلقائيًا عند أول فتح للتطبيق كل يوم.</li>
+      <li>لاستعادة بياناتك على جهاز جديد: سجّل دخولك بنفس حساب جوجل، واختر "استيراد من جوجل درايف".</li>
+      <li>بديل آخر: زر "تصدير نسخة" لحفظ نسخة كملف ومشاركتها يدويًا، و"استيراد من ملف" لاستعادتها لاحقًا من نفس الملف.</li>
+    </ol>
+    <div class="warn"><b>تنبيه مهم:</b> استيراد أي نسخة احتياطية (من جوجل درايف أو من ملف) على جهاز فيه بيانات حالية، سيحذف كل البيانات الموجودة حاليًا ويستبدلها بالكامل بالنسخة المستوردة. يطلب منك التطبيق تأكيدًا صريحًا قبل تنفيذ ذلك.</div>
+  </div>
+
+  <div class="card" id="support">
+    <h2>✉️ الدعم الفني</h2>
+    <p>لأي استفسار أو مشكلة تواجهك أثناء استخدام التطبيق، تواصل معنا عبر:</p>
+    <ul>
+      <li>البريد الإلكتروني: <strong>awraqaicom@gmail.com</strong></li>
+      <li>واتساب: من داخل شاشة الدعم الفني بالتطبيق مباشرة</li>
+    </ul>
+    <p style="margin-top:14px;">للاطّلاع على سياسة الخصوصية الكاملة، زر <a href="../" style="color:var(--accent);font-weight:bold;">صفحة سياسة الخصوصية</a>.</p>
+  </div>
+
+  <footer>
+    <p>© 2026 ماهر لمتابعة حلقات القرآن — جميع الحقوق محفوظة</p>
+  </footer>
+
+</div>
+</body>
+</html>
